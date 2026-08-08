@@ -8,23 +8,19 @@ datasource db {
 }
 
 model Presente {
-  id         Int       @id @default(autoincrement())
-  nome       String
-  categoria  String
-  reservado  Boolean   @default(false)
-
-  reserva    Reserva?
-
-  createdAt  DateTime  @default(now())
+  id        Int      @id @default(autoincrement())
+  nome      String
+  categoria String
+  reservado Boolean  @default(false)
+  createdAt DateTime @default(now())
+  reserva   Reserva?
 }
 
 model Reserva {
-  id          Int      @id @default(autoincrement())
-  nomePessoa  String
-  telefone    String?
-
-  presenteId  Int      @unique
-  presente    Presente @relation(fields: [presenteId], references: [id])
-
-  createdAt   DateTime @default(now())
+  id         Int      @id @default(autoincrement())
+  nomePessoa String
+  telefone   String?
+  presenteId Int      @unique
+  createdAt  DateTime @default(now())
+  presente   Presente @relation(fields: [presenteId], references: [id])
 }
