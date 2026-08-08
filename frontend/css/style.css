@@ -14,16 +14,11 @@ html {
 
 body {
   min-height: 100vh;
-
   background: #f8f4ef;
-
   color: #4d4d4d;
-
   font-family: "Poppins", sans-serif;
-
   overflow-x: hidden;
 }
-
 
 /* =========================
    CONTAINER
@@ -31,12 +26,9 @@ body {
 
 .container {
   width: min(1100px, calc(100% - 40px));
-
   margin: 50px auto;
-
   padding-bottom: 60px;
 }
-
 
 /* =========================
    CABEÇALHO
@@ -44,58 +36,40 @@ body {
 
 header {
   text-align: center;
-
   margin-bottom: 80px;
 }
 
 header h1 {
   font-family: "Great Vibes", cursive;
-
   font-size: clamp(65px, 9vw, 110px);
-
   line-height: 1;
-
   color: #6d7359;
-
   font-weight: 400;
-
   margin-bottom: 20px;
 }
 
 .linha {
   width: min(200px, 40%);
-
   height: 2px;
-
   background: #d6c3b2;
-
   margin: 20px auto;
 }
 
 .descricao {
   width: min(600px, 100%);
-
   margin: 30px auto 0;
-
   line-height: 1.8;
-
   font-size: clamp(15px, 2vw, 20px);
 }
 
 header h2 {
   margin-top: 35px;
-
   font-family: "Great Vibes", cursive;
-
   color: #c49a7a;
-
   font-size: clamp(42px, 6vw, 65px);
-
   font-weight: 400;
-
   line-height: 1.2;
 }
-
 
 /* =========================
    LISTA DE PRESENTES
@@ -103,27 +77,18 @@ header h2 {
 
 #lista {
   display: grid;
-
-  grid-template-columns: 2fr 1fr;
-
-  gap: 40px;
-
-  align-items: start;
-}
-
-
-/* =========================
-   COLUNA DIREITA
-========================= */
-
-.ladoDireito {
-  display: flex;
-
-  flex-direction: column;
-
+  grid-template-columns: repeat(3, 1fr);
   gap: 35px;
+  align-items: stretch;
 }
 
+/*
+  Faz COZINHA, BANHEIRO e CASA
+  participarem da mesma grade.
+*/
+.ladoDireito {
+  display: contents;
+}
 
 /* =========================
    CATEGORIAS
@@ -133,14 +98,17 @@ header h2 {
   position: relative;
 
   background: #ffffff;
-
   border: 2px solid #d9d0c5;
-
   border-radius: 30px;
 
   padding: 50px 35px 30px;
-}
 
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
 
 /* =========================
    TÍTULO DA CATEGORIA
@@ -148,15 +116,12 @@ header h2 {
 
 .tituloCategoria {
   position: absolute;
-
   top: -20px;
-
   left: 50%;
 
   transform: translateX(-50%);
 
   background: #6d7359;
-
   color: white;
 
   padding: 10px 30px;
@@ -166,12 +131,17 @@ header h2 {
   white-space: nowrap;
 
   letter-spacing: 2px;
-
   font-size: 18px;
-
   text-align: center;
 }
 
+/* =========================
+   ITENS
+========================= */
+
+.itens {
+  width: 100%;
+}
 
 /* =========================
    ITEM
@@ -179,9 +149,7 @@ header h2 {
 
 .item {
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
 
   gap: 15px;
@@ -197,22 +165,20 @@ header h2 {
 
 .presente-info {
   display: flex;
-
   flex-direction: column;
 
   gap: 4px;
 
   min-width: 0;
+  flex: 1;
 }
 
 .item span {
   font-size: 16px;
-
   line-height: 1.4;
 
   word-break: break-word;
 }
-
 
 /* =========================
    MENSAGEM RESERVADO
@@ -222,12 +188,10 @@ header h2 {
   color: #8a9272;
 
   font-size: 11px;
-
   font-style: italic;
 
   line-height: 1.4;
 }
-
 
 /* =========================
    BOTÕES
@@ -237,7 +201,6 @@ header h2 {
   flex-shrink: 0;
 
   background: #6d7359;
-
   color: white;
 
   border: none;
@@ -249,7 +212,6 @@ header h2 {
   cursor: pointer;
 
   font-family: "Poppins", sans-serif;
-
   font-size: 13px;
 
   transition:
@@ -259,7 +221,6 @@ header h2 {
 
 .botao:hover {
   background: #596047;
-
   transform: translateY(-1px);
 }
 
@@ -275,7 +236,6 @@ header h2 {
   transform: none;
 }
 
-
 /* =========================
    MODAL
 ========================= */
@@ -286,7 +246,6 @@ header h2 {
   inset: 0;
 
   width: 100%;
-
   height: 100%;
 
   padding: 20px;
@@ -296,7 +255,6 @@ header h2 {
   display: none;
 
   justify-content: center;
-
   align-items: center;
 
   z-index: 9999;
@@ -364,6 +322,10 @@ header h2 {
   border-color: #6d7359;
 }
 
+/* =========================
+   AÇÕES DO MODAL
+========================= */
+
 .acoes {
   display: flex;
 
@@ -388,16 +350,13 @@ header h2 {
 
 #cancelar {
   background: #eee;
-
   color: #555;
 }
 
 #confirmar {
   background: #6d7359;
-
   color: white;
 }
-
 
 /* =========================
    TABLET
@@ -415,22 +374,31 @@ header h2 {
     margin-bottom: 65px;
   }
 
-  #lista {
-    grid-template-columns: 1fr;
+  /*
+    Duas categorias por linha
+  */
 
-    gap: 35px;
+  #lista {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 30px;
   }
 
   .ladoDireito {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 25px;
+    display: contents;
   }
 
-}
+  .categoria {
+    width: 100%;
+    height: 100%;
+  }
 
+  .tituloCategoria {
+    font-size: 16px;
+
+    padding: 9px 25px;
+  }
+}
 
 /* =========================
    CELULAR
@@ -474,6 +442,11 @@ header h2 {
     margin-top: 25px;
   }
 
+  /*
+    No celular cada categoria
+    ocupa toda a largura.
+  */
+
   #lista {
     display: flex;
 
@@ -483,15 +456,13 @@ header h2 {
   }
 
   .ladoDireito {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 30px;
+    display: contents;
   }
 
   .categoria {
     width: 100%;
+
+    height: auto;
 
     padding: 45px 18px 20px;
 
@@ -508,12 +479,22 @@ header h2 {
     border-radius: 12px;
   }
 
+  /* =========================
+     ITENS NO CELULAR
+  ========================= */
+
   .item {
     align-items: flex-start;
 
     padding: 13px 0;
 
     gap: 10px;
+  }
+
+  .presente-info {
+    flex: 1;
+
+    min-width: 0;
   }
 
   .item span {
@@ -523,6 +504,10 @@ header h2 {
   .mensagem-reservado {
     font-size: 10px;
   }
+
+  /* =========================
+     BOTÃO NO CELULAR
+  ========================= */
 
   .botao {
     padding: 8px 11px;
@@ -535,6 +520,10 @@ header h2 {
 
     padding: 5px;
   }
+
+  /* =========================
+     MODAL NO CELULAR
+  ========================= */
 
   .modal {
     padding: 15px;
@@ -559,9 +548,7 @@ header h2 {
 
     padding: 13px;
   }
-
 }
-
 
 /* =========================
    CELULARES MUITO PEQUENOS
@@ -575,7 +562,6 @@ header h2 {
 
   .categoria {
     padding-left: 14px;
-
     padding-right: 14px;
   }
 
@@ -594,5 +580,4 @@ header h2 {
 
     align-self: flex-end;
   }
-
 }
