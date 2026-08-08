@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Lista de Presentes</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main class="container">
+      <header>
+        <p class="tituloSuperior">LISTA DE</p>
+
+        <h1>Presentes</h1>
+
+        <div class="linha"></div>
+
+        <p class="descricao">
+          Sua presença já é o nosso maior presente!
+
+          <br /><br />
+
+          Se quiser nos presentear, fique à vontade com qualquer item da nossa
+          lista.
+        </p>
+
+        <h2>Carol e Douglas</h2>
+      </header>
+
+      <section id="lista">
+        <div class="categoria" id="cozinha">
+          <div class="tituloCategoria">COZINHA</div>
+
+          <div class="itens"></div>
+        </div>
+
+        <div class="ladoDireito">
+          <div class="categoria" id="banheiro">
+            <div class="tituloCategoria">BANHEIRO</div>
+
+            <div class="itens"></div>
+          </div>
+
+          <div class="categoria" id="casa">
+            <div class="tituloCategoria">CASA</div>
+
+            <div class="itens"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <h2>Reservar presente</h2>
+
+        <p id="nomePresente"></p>
+
+        <input type="text" id="nomePessoa" placeholder="Seu nome" />
+
+        <input type="text" id="telefone" placeholder="Telefone (opcional)" />
+
+        <div class="acoes">
+          <button id="cancelar">Cancelar</button>
+
+          <button id="confirmar">Confirmar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

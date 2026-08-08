@@ -1,0 +1,598 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+
+  background: #f8f4ef;
+
+  color: #4d4d4d;
+
+  font-family: "Poppins", sans-serif;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+  width: min(1100px, calc(100% - 40px));
+
+  margin: 50px auto;
+
+  padding-bottom: 60px;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+header {
+  text-align: center;
+
+  margin-bottom: 80px;
+}
+
+header h1 {
+  font-family: "Great Vibes", cursive;
+
+  font-size: clamp(65px, 9vw, 110px);
+
+  line-height: 1;
+
+  color: #6d7359;
+
+  font-weight: 400;
+
+  margin-bottom: 20px;
+}
+
+.linha {
+  width: min(200px, 40%);
+
+  height: 2px;
+
+  background: #d6c3b2;
+
+  margin: 20px auto;
+}
+
+.descricao {
+  width: min(600px, 100%);
+
+  margin: 30px auto 0;
+
+  line-height: 1.8;
+
+  font-size: clamp(15px, 2vw, 20px);
+}
+
+header h2 {
+  margin-top: 35px;
+
+  font-family: "Great Vibes", cursive;
+
+  color: #c49a7a;
+
+  font-size: clamp(42px, 6vw, 65px);
+
+  font-weight: 400;
+
+  line-height: 1.2;
+}
+
+
+/* =========================
+   LISTA DE PRESENTES
+========================= */
+
+#lista {
+  display: grid;
+
+  grid-template-columns: 2fr 1fr;
+
+  gap: 40px;
+
+  align-items: start;
+}
+
+
+/* =========================
+   COLUNA DIREITA
+========================= */
+
+.ladoDireito {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 35px;
+}
+
+
+/* =========================
+   CATEGORIAS
+========================= */
+
+.categoria {
+  position: relative;
+
+  background: #ffffff;
+
+  border: 2px solid #d9d0c5;
+
+  border-radius: 30px;
+
+  padding: 50px 35px 30px;
+}
+
+
+/* =========================
+   TÍTULO DA CATEGORIA
+========================= */
+
+.tituloCategoria {
+  position: absolute;
+
+  top: -20px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background: #6d7359;
+
+  color: white;
+
+  padding: 10px 30px;
+
+  border-radius: 15px;
+
+  white-space: nowrap;
+
+  letter-spacing: 2px;
+
+  font-size: 18px;
+
+  text-align: center;
+}
+
+
+/* =========================
+   ITEM
+========================= */
+
+.item {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 14px 0;
+
+  border-bottom: 1px solid #efe7dd;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.presente-info {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+
+  min-width: 0;
+}
+
+.item span {
+  font-size: 16px;
+
+  line-height: 1.4;
+
+  word-break: break-word;
+}
+
+
+/* =========================
+   MENSAGEM RESERVADO
+========================= */
+
+.mensagem-reservado {
+  color: #8a9272;
+
+  font-size: 11px;
+
+  font-style: italic;
+
+  line-height: 1.4;
+}
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+.botao {
+  flex-shrink: 0;
+
+  background: #6d7359;
+
+  color: white;
+
+  border: none;
+
+  padding: 9px 17px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 13px;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.botao:hover {
+  background: #596047;
+
+  transform: translateY(-1px);
+}
+
+.botao.reservado {
+  background: transparent;
+
+  color: #8a9272;
+
+  cursor: default;
+
+  font-size: 18px;
+
+  transform: none;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  display: none;
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 9999;
+}
+
+.modal.ativo {
+  display: flex;
+}
+
+.modal-content {
+  width: min(420px, 100%);
+
+  max-height: calc(100vh - 40px);
+
+  overflow-y: auto;
+
+  background: #ffffff;
+
+  border-radius: 20px;
+
+  padding: 35px;
+
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+.modal-content h2 {
+  font-family: "Cormorant Garamond", serif;
+
+  color: #6d7359;
+
+  text-align: center;
+
+  font-size: 32px;
+
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  text-align: center;
+
+  margin-bottom: 25px;
+
+  color: #777;
+}
+
+.modal-content input {
+  width: 100%;
+
+  margin-bottom: 15px;
+
+  padding: 14px;
+
+  border-radius: 10px;
+
+  border: 1px solid #ddd;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 15px;
+
+  outline: none;
+}
+
+.modal-content input:focus {
+  border-color: #6d7359;
+}
+
+.acoes {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+.acoes button {
+  border: none;
+
+  padding: 11px 20px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-family: "Poppins", sans-serif;
+}
+
+#cancelar {
+  background: #eee;
+
+  color: #555;
+}
+
+#confirmar {
+  background: #6d7359;
+
+  color: white;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 850px) {
+
+  .container {
+    width: min(700px, calc(100% - 32px));
+
+    margin-top: 35px;
+  }
+
+  header {
+    margin-bottom: 65px;
+  }
+
+  #lista {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+  .ladoDireito {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+  }
+
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+  .container {
+    width: calc(100% - 24px);
+
+    margin: 25px auto;
+
+    padding-bottom: 40px;
+  }
+
+  header {
+    margin-bottom: 55px;
+  }
+
+  header h1 {
+    font-size: clamp(55px, 18vw, 80px);
+  }
+
+  .linha {
+    width: 120px;
+
+    margin: 15px auto;
+  }
+
+  .descricao {
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin-top: 20px;
+  }
+
+  header h2 {
+    font-size: clamp(40px, 13vw, 55px);
+
+    margin-top: 25px;
+  }
+
+  #lista {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 30px;
+  }
+
+  .ladoDireito {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 30px;
+  }
+
+  .categoria {
+    width: 100%;
+
+    padding: 45px 18px 20px;
+
+    border-radius: 22px;
+  }
+
+  .tituloCategoria {
+    top: -17px;
+
+    padding: 8px 22px;
+
+    font-size: 14px;
+
+    border-radius: 12px;
+  }
+
+  .item {
+    align-items: flex-start;
+
+    padding: 13px 0;
+
+    gap: 10px;
+  }
+
+  .item span {
+    font-size: 14px;
+  }
+
+  .mensagem-reservado {
+    font-size: 10px;
+  }
+
+  .botao {
+    padding: 8px 11px;
+
+    font-size: 11px;
+  }
+
+  .botao.reservado {
+    font-size: 16px;
+
+    padding: 5px;
+  }
+
+  .modal {
+    padding: 15px;
+  }
+
+  .modal-content {
+    padding: 25px 20px;
+
+    border-radius: 18px;
+  }
+
+  .modal-content h2 {
+    font-size: 28px;
+  }
+
+  .acoes {
+    flex-direction: column-reverse;
+  }
+
+  .acoes button {
+    width: 100%;
+
+    padding: 13px;
+  }
+
+}
+
+
+/* =========================
+   CELULARES MUITO PEQUENOS
+========================= */
+
+@media (max-width: 380px) {
+
+  .container {
+    width: calc(100% - 18px);
+  }
+
+  .categoria {
+    padding-left: 14px;
+
+    padding-right: 14px;
+  }
+
+  .item {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .botao {
+    width: 100%;
+  }
+
+  .botao.reservado {
+    width: auto;
+
+    align-self: flex-end;
+  }
+
+}
