@@ -78,7 +78,30 @@ async function reservar(req, res) {
 
 }
 
+async function listarReservas(req, res) {
+    try {
+        const reservas = await prisma.reserva.findMany({
+            include: {
+                presente: true
+            },
+            orderBy: {
+                createdAt: "asc"
+            }
+        });
+
+        res.json(reservas);
+
+    } catch (error) {
+        console.error(error);
+
+        res.status(500).json({
+            erro: "Erro ao listar reservas."
+        });
+    }
+}
+
 module.exports = {
   listar,
-  reservar
+  reservar,
+  listarReservas
 };

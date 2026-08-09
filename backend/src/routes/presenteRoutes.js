@@ -8,4 +8,7 @@ router.get("/", presenteController.listar);
 
 router.post("/reservar", presenteController.reservar);
 
+// Diagnóstico das reservas
+router.get("/reservas", presenteController.listarReservas);
+
 module.exports = router;
